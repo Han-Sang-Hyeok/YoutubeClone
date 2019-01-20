@@ -1,0 +1,22 @@
+{
+  "name": "youtubeclone",
+  "version": "1.0.0",
+  "description": "YoutubeCloneCoding with VanillaJS and NodeJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Han-Sang-Hyeok/YoutubeClone.git"
+  },
+  "author": "HanSangHyeok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Han-Sang-Hyeok/YoutubeClone/issues"
+  },
+  "homepage": "https://github.com/Han-Sang-Hyeok/YoutubeClone#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
