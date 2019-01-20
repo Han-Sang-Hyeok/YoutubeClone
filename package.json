@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "YoutubeCloneCoding with VanillaJS and NodeJs",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Han-Sang-Hyeok/YoutubeClone.git"
@@ -17,6 +14,15 @@
   },
   "homepage": "https://github.com/Han-Sang-Hyeok/YoutubeClone#readme",
   "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
     "express": "^4.16.4"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js --delay 2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
   }
 }
