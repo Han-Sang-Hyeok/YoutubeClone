@@ -24,7 +24,6 @@ export const postUpload = (req, res) => {
   const {
     body: { file, title, description }
   } = req;
-  console.log(file, title, description);
   //To Do: Upload and save video
   res.redirect(routes.videoDetail(3232323232323));
 };
