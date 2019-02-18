@@ -7,9 +7,9 @@ const SEARCH = "/search";
 
 // Users
 const USERS = "/users";
+const USER_DETAIL = "/:id"; // 윗줄이랑 이거 합치면 /user/1이런식으로 사용 가능하다고 하네
 const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
-const USER_DETAIL = "/:id"; // 윗줄이랑 이거 합치면 /user/1이런식으로 사용 가능하다고 하네
 
 // Videos
 
