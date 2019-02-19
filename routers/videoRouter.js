@@ -5,17 +5,26 @@ import {
   postUpload,
   videoDetail,
   deleteVideo,
-  editVideo
+  getEditVideo,
+  postEditVideo
 } from "../controllers/videoController";
 import { uploadVideo } from "../middleware";
 
 
 const videoRouter = express.Router();
 
+// uploads
 videoRouter.get(routes.upload, getUpload);
 videoRouter.post(routes.upload, uploadVideo,postUpload);
+
+// video detail
 videoRouter.get(routes.videoDetail(), videoDetail);
-videoRouter.get(routes.editVideo, editVideo);
-videoRouter.get(routes.deleteVideo, deleteVideo);
+
+// edit video
+videoRouter.get(routes.editVideo(), getEditVideo);
+videoRouter.post(routes.editVideo(), postEditVideo);
+
+// delete video
+videoRouter.get(routes.deleteVideo(), deleteVideo);
 
 export default videoRouter;
