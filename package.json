@@ -8,7 +8,7 @@
     "url": "git+https://github.com/Han-Sang-Hyeok/YoutubeClone.git"
   },
   "author": "HanSangHyeok",
-  "license": "ISC",
+  "licyense": "ISC",
   "bugs": {
     "url": "https://github.com/Han-Sang-Hyeok/YoutubeClone/issues"
   },
@@ -18,21 +18,32 @@
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "acorn": "^6.1.0",
+    "autoprefixer": "^9.4.8",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.0",
     "dotenv": "^6.2.0",
     "eslint": "^5.14.1",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.1",
     "express": "^4.16.4",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "helmet": "^3.15.0",
     "mongoose": "^5.4.12",
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
-    "pug": "^2.0.3"
+    "node-sass": "^4.11.0",
+    "postcss-loader": "^3.0.0",
+    "pug": "^2.0.3",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node init.js --delay 2"
+    "dev:server": "nodemon --exec babel-node init.js --delay 2",
+    "dev:assets": "webpack -w --mode=development",
+    "build:assets": "webpack --mode=production"
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "^13.1.0",
