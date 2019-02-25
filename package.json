@@ -16,9 +16,11 @@
   "dependencies": {
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
     "acorn": "^6.1.0",
     "autoprefixer": "^9.4.8",
+    "babel-loader": "^8.0.5",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "cross-env": "^5.2.0",
@@ -41,7 +43,7 @@
     "webpack-cli": "^3.2.3"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2",
+    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore 'scss' ",
     "dev:assets": "webpack -w --mode=development",
     "build:assets": "webpack --mode=production"
   },
