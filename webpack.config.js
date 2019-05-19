@@ -10,19 +10,15 @@ const config = {
   entry: ["@babel/polyfill", ENTRY_FILE],
   mode: MODE,
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js)$/,
-        use: [
-          {
-            loader: "babel-loader"
-          }
-        ]
+        use: [{
+          loader: "babel-loader"
+        }]
       },
       {
         test: /\.(scss)$/,
-        use: ExtractCSS.extract([
-          {
+        use: ExtractCSS.extract([{
             loader: "css-loader"
           },
           {
