@@ -60,6 +60,7 @@ export const githubLoginCallback = async (accessToken,refreshToken, profile, cb)
     console.log(user);
     if(user){
       user.githubId = id;
+      user.avatarUrl = avatar_url;
       user.save();
       return cb(null, user);
     }
@@ -67,7 +68,7 @@ export const githubLoginCallback = async (accessToken,refreshToken, profile, cb)
       email,
       name,
       githubId : id,
-      avatar_url : avatar_url
+      avatar_url
     });
     return cb(null, newUser);
   
@@ -130,5 +131,21 @@ export const userDetail = async (req, res) =>{
   }
 }
 export const users = (req, res) => res.render("users");
-export const editProfile = (req, res) => res.render("editProfile");
+export const getEditProfile = (req, res) => res.render("editProfile");
+export const postEditProfile = async (req,res) => {
+  const{
+    body :{name, email},
+    file 
+  } = req;
+  try{
+    await User.findByIdAndUpdate(req.user.id,{
+      name,
+      email,
+      avatarUrl: file? file.path : req.user.avatarUrl
+    });
+    res.redirect(routes.me);
+  }catch(error){
+    res.render("editProfile", {pageTitle:"Edit Profile"});
+  }
+}
 export const changePassword = (req, res) => res.render("changePassword");
