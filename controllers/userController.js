@@ -47,6 +47,8 @@ export const postLogin = passport.authenticate('local',{
   successRedirect : routes.home
 })
 
+
+// Git-hub loggin part
 export const githubLogin = passport.authenticate("github");
 
 //export const githhubLoginCallback = async (_, __, profile,cb) // 이 구문도 가능
@@ -79,12 +81,54 @@ export const postGithubLogIn= (req,res) => {
   res.redirect(routes.home);
 }
 
+// facebook loggin part
+export const facebookLogin = passport.authenticate("facebook");
+
+export const facebookLoginCallback = async (_,__, profile, cb) =>{
+  const {_json : {id, name, email}} = profile;
+  console.log(profile);
+  try{
+    const user = await User.findOne({email});
+    if(user){
+      user.facebookId = id,
+      user.save();
+      return cb(null,user);
+    }
+    const newUser = await User.create({
+      email,
+      name,
+      facebookId : id
+    });
+    return cb(null,newUser);
+  }catch(error){
+    return cb(error);
+  }
+}
+
+export const postFacebookLogin = (req,res) =>{
+  res.redirect(routes.home);
+}
+
+
 export const logout = (req, res) => {
   req.logout();
   res.redirect(routes.home);
 };
 
+export const getMe = (req,res) =>{
+  res.render("userDetail",{pageTitle : "User Detail", user : req.user})
+}
+
+export const userDetail = async (req, res) =>{
+  const {params : {id}} = req;
+  // url에 있는 id값 사용하니까 (토큰)
+  try{
+    const user = await User.findById(id);
+    res.render("userDetail",{pageTitle : "User Detail",user});
+  }catch(error){
+    res.redirect(routes.home);
+  }
+}
 export const users = (req, res) => res.render("users");
 export const editProfile = (req, res) => res.render("editProfile");
-export const userDetail = (req, res) => res.render("userDetail");
 export const changePassword = (req, res) => res.render("changePassword");
