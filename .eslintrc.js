@@ -14,4 +14,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {},
+  env:{
+    "browser" : true
+    //자동으로 "붙는거 멈춰줌
+  }
 };
