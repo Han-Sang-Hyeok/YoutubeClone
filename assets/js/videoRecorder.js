@@ -13,7 +13,7 @@ const handleVideoData = (event) =>{
     link.download = "recorded.webm";
     document.body.appendChild(link);
     link.click();
-
+    // 1. a링크 만들고 2. url 생성 3. 파일 명으로 다운로드 4. document body에 추가 5. 가상으로 클릭
 };
 
 const stopRecording = () =>{
